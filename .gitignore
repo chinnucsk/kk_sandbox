@@ -1,0 +1,12 @@
+deps
+ebin
+lib
+log
+releases
+erts-5.9.2
+*.beam
+*.script
+*.escript
+*.log
+*.dump
+*.bin

@@ -1,0 +1,14 @@
+{application, n1,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  crypto,
+                  snmp
+                 ]},
+  {mod, { n1_app, []}},
+  {env, []}
+ ]}.

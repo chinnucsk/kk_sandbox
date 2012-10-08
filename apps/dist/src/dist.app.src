@@ -1,0 +1,13 @@
+{application, dist,
+ [
+  {description, "Distributed app test"},
+  {vsn, "1"},
+  {registered, [dist_sup]},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  sasl
+                 ]},
+  {mod, { dist_app, []}},
+  {env, []}
+ ]}.
