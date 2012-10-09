@@ -2,11 +2,12 @@
  [
   {description, ""},
   {vsn, "1"},
-  {registered, []},
+  {registered, [n1_sup]},
   {applications, [
                   kernel,
                   stdlib,
                   sasl,
+                  inets,
                   mnesia,
                   crypto,
                   snmp,
