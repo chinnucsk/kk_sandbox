@@ -6,8 +6,10 @@
   {applications, [
                   kernel,
                   stdlib,
+                  sasl,
                   crypto,
-                  snmp
+                  snmp,
+                  os_mon
                  ]},
   {mod, { n1_app, []}},
   {env, []}
