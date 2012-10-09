@@ -7,9 +7,11 @@
                   kernel,
                   stdlib,
                   sasl,
+                  mnesia,
                   crypto,
                   snmp,
-                  os_mon
+                  os_mon,
+                  otp_mibs
                  ]},
   {mod, { n1_app, []}},
   {env, []}
