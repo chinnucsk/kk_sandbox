@@ -1,6 +1,6 @@
 {application, n1,
  [
-  {description, ""},
+  {description, "SNMP Manager"},
   {vsn, "1"},
   {registered, [n1_sup]},
   {applications, [
@@ -10,9 +10,7 @@
                   inets,
                   mnesia,
                   crypto,
-                  snmp,
-                  os_mon,
-                  otp_mibs
+                  snmp
                  ]},
   {mod, { n1_app, []}},
   {env, []}

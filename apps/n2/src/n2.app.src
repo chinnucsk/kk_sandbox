@@ -1,11 +1,17 @@
 {application, n2,
  [
-  {description, ""},
+  {description, "SNMP Agent"},
   {vsn, "1"},
-  {registered, []},
+  {registered, [n2_sup]},
   {applications, [
                   kernel,
-                  stdlib
+                  stdlib,
+                  sasl,
+                  mnesia,
+                  crypto,
+                  snmp,
+                  os_mon,
+                  otp_mibs
                  ]},
   {mod, { n2_app, []}},
   {env, []}
