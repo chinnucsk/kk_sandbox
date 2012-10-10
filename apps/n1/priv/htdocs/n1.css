@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+    vertical-align: middle;
+}
+.demo {
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    vertical-align: middle;
+    display: inline-block;
+    -webkit-border-radius: 10;
+    background-color: lightgray;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+}
