@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd rels/r2
+cd rels/r1
 ../../rebar -f generate

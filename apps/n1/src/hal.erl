@@ -7,7 +7,12 @@
 
 snmp(SessionId, _Env, _Input) ->
     {H, M, S} = time(),
-    mod_esi:deliver(SessionId, ["Content-Type:text/html\r\n\r\n" | io_lib:format("~p:~p:~p", [H, M, S])]).
+    smnpm:which_agents(),
+    {ok, SnmpRep, Rem} = snmpm:sync_get("doxtop", "webagent", [[1,3,6,1,4,1,193,19,3,1,2,1,1,1,2,1]]),
+    {Es, Ei, [{varbind, Id, Type, Val, 1}]} = SnmpRep,
+    Resp = [Val | io_lib:format("~p:~p", [M,S])],
+    error_logger:info_msg("Response: ~p~n", [Resp]),
+    mod_esi:deliver(SessionId, ["Content-Type:text/html\r\n\r\n" | [Resp]]).
 
 home(SessionId, Env, _Input) ->
     mod_esi:deliver(SessionId, ["Content-Type:text/html\r\n\r\n" | home(Env)]).
@@ -16,9 +21,9 @@ home([{http_host, Host} | _Env]) ->
     "<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"http://"++Host++"/n1.css\" />"++
     "<script type=\"text/javascript\" src=\"http://"++ Host++"/jquery.js\"></script>"++
     "<script>function comet(){$.ajax({" ++
-	"type: 'Get', url: 'http://"++Host++"/monitor/hal:snmp', async: true, cache: false,"++
-	"success : function(data){ $('#demo').html(data); setTimeout('comet()', 1000)}," ++
-	"error: function(XMLHttpRequest, textstatus, error){ $('#demo').html(texststatus), setTimeout('comet()', 5000);}});}" ++
+    "type: 'Get', url: 'http://"++Host++"/monitor/hal:snmp', async: true, cache: false,"++
+    "success : function(data){ $('#demo').html(data); setTimeout('comet()', 1000)}," ++
+    "error: function(XMLHttpRequest, textstatus, error){ $('#demo').html(texststatus), setTimeout('comet()', 5000);}});}" ++
     "$(function(){comet();});</script></head><body>" ++
     "<div id=\"demo\" class=\"demo\">Hello</p>" ++
     "</body></html>";

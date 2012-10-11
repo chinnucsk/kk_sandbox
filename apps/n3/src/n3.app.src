@@ -5,7 +5,13 @@
   {registered, []},
   {applications, [
                   kernel,
-                  stdlib
+                  stdlib,
+                  sasl,                  
+                  mnesia,                  
+                  crypto,                  
+                  snmp,                  
+                  os_mon,
+                  otp_mibs
                  ]},
   {mod, { n3_app, []}},
   {env, []}
